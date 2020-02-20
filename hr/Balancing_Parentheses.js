@@ -4,15 +4,13 @@ function getMin(s) {
     for(let char of s) {
         if(char === '(') {
             balance++
-        }
-        else{
+        } else {
             balance--
         }
-        if(balance === -1){
+        if(balance === -1) {
             answer++
             balance++
         }
-
     }
     return  answer + balance
 }
