@@ -69,3 +69,32 @@ function answer2(str, truelength) {
 }
 
 // console.log(answer2('Mr John Smith    ', 13))
+
+//1.4
+
+//Q: Palindrome Permution: Given  stringm write a function to check if its
+//a permutation of a palindrome. 
+
+const palindromePermutation = string => {
+    const match = {}                    // our lookup
+    for(let char of string) {
+        if(!match[char]) {
+            match[char] = 1
+        } else {
+            match[char] +=1
+        }
+    }
+    for(let char in match) {            //make sure everything is even, but if odd only one copy exist
+        let temp = 0
+        if(match[char] % 2 !== 0) {
+            temp++
+        }
+        if(temp > 1) {
+            return false
+        }
+    }
+    return true
+}
+
+console.log(palindromePermutation('taco cat'))
+
