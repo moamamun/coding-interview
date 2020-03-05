@@ -96,5 +96,34 @@ const palindromePermutation = string => {
     return true
 }
 
-console.log(palindromePermutation('taco cat'))
+//console.log(palindromePermutation('taco cat'))
+
+
+//1.5
+
+//Q: One Away: There are three types of edits that can be performed on strings: insert a char, remove a char, or replace
+// given twoo strings write a function to ceck if they are one edit away
+
+const oneAway = (str, edit) => {
+    const dir = {}
+    let count = 0
+    for(let char of str) {
+        dir[char] = dir[char] = 1 || dir[char] + 1
+    }
+    for(let char of edit) {
+       if(char in dir) {
+           dir[char] -- 
+       }
+       else count++
+    }
+    if(count > 1) {
+        return false
+    } else {
+        return true
+    }
+}
+
+console.log(oneAway('pale', 'bake'))
+
+// I think I over complicated it with two for-loops, will come back and try a simplier approach. 
 
