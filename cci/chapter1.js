@@ -127,3 +127,30 @@ console.log(oneAway('pale', 'bake'))
 
 // I think I over complicated it with two for-loops, will come back and try a simplier approach. 
 
+//1.6
+//Q: string compression: Implement a method to perform basic string compression using the counts
+// of repeated char. For ex, the str aabcccccaaa will be a2b1c5a3. 
+
+// The way I would go about this would be either a while loop or a for loop, 
+//for while the condition would be something like prev and next. Base case would be while next < str lenght 
+// **I will go with for loop. simple concept
+// start with a new pass and counter
+// if prev and next are equal counter ++ if not push the var and the counter then make counter ++
+
+const password = str => {
+    let pass = ""
+    let counter = 1
+      for(let i = 0; i < str.length; i++) {
+          if(str[j] === str[j+1]) {
+              counter++
+          }
+          else {
+              pass += str[j] + counter
+              counter = 1
+          }
+      }
+      return pass
+  }
+  
+    
+  console.log(password("aabcccccaaa"))
