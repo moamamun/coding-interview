@@ -154,3 +154,28 @@ const password = str => {
   
     
   console.log(password("aabcccccaaa"))
+
+  //1.7
+  //Q: Roatate Matrix: Given an image represented by an NxN matrix, where each pixel in the image is  4 bytes, 
+  //write a method to rotate the image by 90 degrees. Can you do this in place?
+
+  const rotateMatrix = (matrix) => {
+    // Copy the original matrix
+    let normal = matrix.slice();
+    for(let i=0; i < matrix.length; i++) {
+        // Map each row entry to its rotated value
+        let row = matrix[i].map((x, j) => {
+            let k = (matrix.length - 1) - j;
+            return normal[k][i];
+        });
+        matrix[i] = row;
+    }
+    return matrix;
+};
+
+
+  //1.8 Zero
+
+
+  
+
