@@ -3,47 +3,21 @@
 
 
 var longestPalindrome = function(s) {
-
-    if(s.length <= 1) {
-        return s
-    }
-
-    if(s.length === 2 && s[0] !== s[1]) {
-        return s[0] || s[1]
-    } else {
-        return s
-    }
-
-    let prev = 0
-    let next = 1
-    let answer = ""
-    
-    while(next <= s.length) {
-        
-        let back = s.charAt(prev)
-        let forward = s.charAt(next)
-
-        if(forward === s.charAt(next+1)) {
-            back = s.charAt(next)
-            prev = next
-            next = next + 1
-            
+    var max = '';
+    for (var i = 0; i < s.length; i++) {
+      for (var j = 0; j < 2; j++) {
+        var left = i;
+        var right = i + j;
+        while (s[left] && s[left] === s[right]) {
+          left--;
+          right++;
         }
-        
-        if(back === forward) {
-           
-            let temp = s.substring(prev,next + 1)
-            prev++
-            next++
-            
-            if(temp.length > answer.length) {
-            answer = temp
-            }
+        if ((right - left - 1) > max.length) {
+          max = s.substring(left + 1, right);
         }
-        else if(back !== forward) {
-            next++
-        }
-        
+      }
     }
-    return answer
-};
+    return max;
+  };
+
+  console.log(longestPalindrome("absbsa"))
